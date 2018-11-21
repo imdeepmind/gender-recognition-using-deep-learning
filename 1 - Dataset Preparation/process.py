@@ -13,7 +13,7 @@ def process_images(gender, iter):
             for x,y,w,h in face:
                 roi = image[y:y+h,x:x+w]
                 newPath = 'processedData/' + gender + '/' + gender + '_' + str(index) + '.jpg'
-                resized_image = cv2.resize(roi, (64, 64)) 
+                resized_image = cv2.resize(roi, (32, 32)) 
                 if cv2.imwrite(newPath, resized_image):
                     print('-- Sucessfully saved the ' + gender + ' image ' + str(i) + ' --')
                 else:
@@ -31,7 +31,7 @@ def process_images(gender, iter):
 def main():
     no_of_images = 1500
     process_images('girls', no_of_images)
-    # process_images('boys', no_of_images)
+    process_images('boys', no_of_images)
 
 if __name__ == "__main__":
     main()
