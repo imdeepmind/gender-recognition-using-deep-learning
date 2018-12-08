@@ -1,12 +1,27 @@
 # Gender Recognition using Deep Learning
 
-In this project, I'll detect the gender of a human just by using the facial features.
+***The aim of this project is to make a computer program to detect detects human faces in images and then predicts the gender based on the image. For that, the special algorithm is trained on a dataset of images of girls and boys. After training, the algorithm can predict the gender of a person just by observing his/her face.***
 
-## Data Preparation
-In this part of the project, I'm basically creating the dataset. 
+------
 
-    1. First I've downloaded all images from different online websites.
-    2. Second I've used OpenCV to detect image faces and then save the images in 32x32 resolution. 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/34741145/49688199-6075bc80-fb34-11e8-9197-1d65a8885dc5.jpg" alt="a human face" />
+<img src="https://user-images.githubusercontent.com/34741145/49688224-c3675380-fb34-11e8-85de-6f309dcf9d57.jpg"/> 
+
+</p>
+
+**Here are two pictures of a human face. Now I want to ask you a question. Can you predict the gender just by the picture of his/her face? Easy and simple! I think anyone can do that. But ever wondered how our brain does the prediction?**
+
+## Table of contents:
+- [Introduction](#introduction)
+- [Dataset](#dataset)
+
+## Introduction
+Will be added soon
+
+## Dataset
+Will be added soon
+
 
 ## This project is incomplete
 
