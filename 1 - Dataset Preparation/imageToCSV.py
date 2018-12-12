@@ -35,8 +35,10 @@ def main():
 
     
     data = pd.DataFrame(columns=columns,data=arrData)
+    data = data.sample(frac=1)
 
-    data.to_csv('csvData/faces.csv')
+
+    data.to_csv('csvData/faces.csv', index=False)
 
 if __name__ == "__main__":
     main()
