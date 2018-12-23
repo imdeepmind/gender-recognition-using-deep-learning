@@ -7,7 +7,7 @@ import cv2
 
 def main():
     columns = []
-    for i in range(1, (32*32)+1):
+    for i in range(1, (64*64)+1):
         columns.append('pixel' + str(i))
     columns.append('class')
     arrData =[]
@@ -20,16 +20,16 @@ def main():
     for image in imagesG:
         path = pathG + image
         img = cv2.imread(path, 0)
-        if img.shape == (32,32):
-            temp = img.reshape(1024)
+        if img.shape == (64,64):
+            temp = img.reshape(4096)
             temp = np.append([temp], 'girl')
             arrData.append(temp)
     
     for image in imagesB:
         path = pathB + image
         img = cv2.imread(path, 0)
-        if img.shape == (32,32):
-            temp = img.reshape(1024)
+        if img.shape == (64,64):
+            temp = img.reshape(4096)
             temp = np.append([temp], 'boy')
             arrData.append(temp)
 

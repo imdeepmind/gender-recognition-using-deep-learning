@@ -30,8 +30,8 @@ model.add(MaxPool2D(pool_size=(2,2), strides=(2,2)))
 model.add(Dropout(0.25))
 
 model.add(Flatten())
-model.add(Dense(264, activation='relu'))
-model.add(Dense(64, activation='relu'))
+model.add(Dense(512, activation='relu'))
+model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.25))
 model.add(Dense(2, activation='softmax'))
 
