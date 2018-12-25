@@ -51,7 +51,7 @@ model.add(Conv2D(filters = 6,
 model.add(MaxPool2D(pool_size = 2, strides = 2))
 #Layer 2
 #Conv Layer 2
-model.add(Conv2D(filters = 32, 
+model.add(Conv2D(filters = 16, 
                  kernel_size = 5,
                  strides = 1,
                  activation = 'relu'))
@@ -66,26 +66,17 @@ model.add(MaxPool2D(pool_size = 2, strides = 2))
 model.add(Flatten())
 #Layer 3
 #Fully connected layer 1
-model.add(Dense(units = 512, activation = 'relu'))
+model.add(Dense(units = 120, activation = 'relu'))
 #Layer 4
 #Fully connected layer 2
-model.add(Dense(units = 128, activation = 'relu'))
+model.add(Dense(units = 84, activation = 'relu'))
 
-model.add(Dense(units = 64, activation = 'relu'))
-
-model.add(Dense(units = 28, activation = 'relu'))
-
-model.add(Dense(units = 16, activation = 'relu'))
-
-model.add(Dense(units = 8, activation = 'relu'))
-
-model.add(Dense(units = 4, activation = 'relu'))
-model.add(Dropout(0.2))
+model.add(Dropout(0.15))
 #Layer 5
 #Output Layer
 model.add(Dense(units = 2, activation = 'softmax'))
 
-X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.4, random_state=2)
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.1, random_state=2)
 
 datagen = ImageDataGenerator(
         featurewise_center=False,
@@ -106,7 +97,7 @@ model.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accu
 
 history = model.fit_generator(datagen.flow(X_train, y_train, batch_size=32),
                     validation_data = (X_test,y_test),
-                    steps_per_epoch=len(X_train) / 32, epochs=20)
+                    steps_per_epoch=len(X_train) / 32, epochs=100)
 
 hist_df = pd.DataFrame(history.history)
 
@@ -121,10 +112,6 @@ plt.title('Loss for ' + str(len(history.epoch)) + ' epochs')
 plt.xlabel('Epoch')
 plt.ylabel('Loss')
 plt.legend()
-
-
-# with this model im getting about 78% to 81% accuracy
-# need to optimize the model and the dataset to acheive better result (+98%)
 
 plt.subplot(122)
 plt.plot(hist_df.acc, label='Training accuracy', **params_dict)
